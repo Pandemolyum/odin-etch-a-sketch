@@ -10,19 +10,43 @@ body {
     background-color: #DF9E4E;
 }
 
+h1 {
+    font-size: 64px;
+    color: #452B0C;
+    text-align: center;
+}
+
+button {
+    color: #FDF9F4;
+    background-color: #452B0C;
+    padding: 16px;
+    margin-bottom: 42px;
+    border: 3px solid black;
+    border-radius: 10px;
+    font-size: 32px;
+    text-align: center;
+}
+
 #container {
     display: flex;
     flex-direction: column;
-    align-items: stretch;
+    background-color: black;
+}
+
+#sketchBack {
     background-color: #98601B;
     padding: 48px;
     border: 3px solid black;
     border-radius: 32px;
 }
 
+#butttonContainer {
+    display: flex;
+    gap: 32px;
+}
+
 .gridRow {
     display: flex;
-    align-items: stretch;
     padding: 0;
     border: 0;
     margin: 0;
@@ -32,28 +56,8 @@ body {
     flex: 1;
     background-color: white;
     border: 1px solid black;
-    color: white;
 }
 
 .painted {
     background-color: black;
-    color: black;
-}
-
-h1 {
-    font-size: 64px;
-    color: #452B0C;
-    text-align: center;
-}
-
-button {
-    flex: 0;
-    color: #FDF9F4;
-    background-color: #452B0C;
-    padding: 16px;
-    margin-bottom: 42px;
-    border: 3px solid black;
-    border-radius: 10px;
-    font-size: 32px;
-    text-align: center;
 }

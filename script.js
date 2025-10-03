@@ -1,16 +1,37 @@
 let gridSize = 16;
+let isRGB = false;
+let rgbQueue = [];
 const container = document.querySelector("#container");
+const gridButton = document.querySelector("#grid");
+const rgbButton = document.querySelector("#rgb");
 
-createGrid(gridSize);
+gridButton.addEventListener("click", getGridSize);
+
+rgbButton.addEventListener("click", () => {
+    (isRGB) ? isRGB = false : isRGB = true;
+});
 
 document.addEventListener("mouseover", (e) => {
     if (e.target.className === "gridCol") {
-        e.target.classList.add("painted");
+        if (isRGB) {
+            const red = Math.floor(Math.random() * 256);
+            const blue = Math.floor(Math.random() * 256);
+            const green = Math.floor(Math.random() * 256);
+            e.target.style.backgroundColor = `rgb(${red}, ${blue}, ${green})`;
+
+            rgbQueue.forEach((elem) => {elem.style.opacity = elem.style.opacity - 0.1;})
+            rgbQueue.push(e.target);
+
+            if (rgbQueue.length > 10) {
+                rgbQueue.shift();
+            }
+        } else {
+            e.target.classList.add("painted");
+        }
     }
 });
 
-const button = document.querySelector("button");
-button.addEventListener("click", getGridSize);
+createGrid(gridSize);
 
 
 // ========== FUNCTIONS ==========
@@ -48,6 +69,7 @@ function createGrid(size) {
             colDiv.classList.add("gridCol");
             colDiv.style.width = cellMaxSize + "px";
             colDiv.style.height = cellMaxSize + "px";
+            colDiv.style.opacity = 1;
             rowDiv.appendChild(colDiv);
         }
     }
