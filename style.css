@@ -1,0 +1,18 @@
+#container {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.gridRow {
+    display: flex;
+}
+
+.gridCol {
+    flex: 1;
+    border: 2px solid black;
+}
+
+.painted {
+    background-color: black;
+}
