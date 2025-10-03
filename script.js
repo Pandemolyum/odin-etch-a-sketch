@@ -1,5 +1,5 @@
-const container = document.querySelector("#container");
 let gridSize = 16;
+const container = document.querySelector("#container");
 
 createGrid(gridSize);
 
@@ -13,6 +13,7 @@ const button = document.querySelector("button");
 button.addEventListener("click", getGridSize);
 
 
+// ========== FUNCTIONS ==========
 function getGridSize() {
     const userInput = prompt("Enter the new grid size (max 100).");    
     setGridSize(parseInt(userInput));
@@ -28,6 +29,15 @@ function setGridSize(size) {
 }
 
 function createGrid(size) {
+    const containerMaxSize = Math.min(window.innerHeight, window.innerWidth);
+    const containerPadding = parseInt(window.getComputedStyle(container).getPropertyValue('padding').slice(0, 2));
+    const containerMargin = 384;
+    const containerSize = containerMaxSize - containerMargin;
+    const cellMaxSize = (containerSize - 2 * containerPadding) / size;
+
+    container.style.width = containerSize + "px";
+    container.style.height = containerSize + "px";
+
     for (let i = 0; i < size; i++) {
     let rowDiv = document.createElement("div");
     rowDiv.classList.add("gridRow");
@@ -36,7 +46,8 @@ function createGrid(size) {
         for (let i = 0; i < size; i++) {
             let colDiv = document.createElement("div");
             colDiv.classList.add("gridCol");
-            colDiv.textContent = ".";
+            colDiv.style.width = cellMaxSize + "px";
+            colDiv.style.height = cellMaxSize + "px";
             rowDiv.appendChild(colDiv);
         }
     }
@@ -45,7 +56,6 @@ function createGrid(size) {
 
 function deleteGrid() {
     while (container.firstChild) {
-        console.log("ahh");
         container.removeChild(container.firstChild);
     }
 }
