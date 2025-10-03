@@ -8,7 +8,13 @@ const rgbButton = document.querySelector("#rgb");
 gridButton.addEventListener("click", getGridSize);
 
 rgbButton.addEventListener("click", () => {
-    (isRGB) ? isRGB = false : isRGB = true;
+    if (isRGB) {
+        isRGB = false;
+        rgbButton.style.backgroundColor = "#452B0C";
+    } else {
+        isRGB = true;
+        rgbButton.style.backgroundColor = "#98601B";
+    }
 });
 
 document.addEventListener("mouseover", (e) => {
