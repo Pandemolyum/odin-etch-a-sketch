@@ -10,7 +10,7 @@ for (let i = 0; i < GRID_SIZE; i++) {
     for (let i = 0; i < GRID_SIZE; i++) {
         let colDiv = document.createElement("div");
         colDiv.classList.add("gridCol");
-        colDiv.textContent = "lorem ipsum";
+        colDiv.textContent = ".";
         rowDiv.appendChild(colDiv);
     }
 }

@@ -11,8 +11,11 @@
 .gridCol {
     flex: 1;
     border: 2px solid black;
+    color: white;
 }
 
 .painted {
     background-color: black;
+    color: black;
 }
+
